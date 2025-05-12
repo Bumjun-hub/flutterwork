@@ -1,0 +1,58 @@
+# https://dart.dev/guides/libraries/private-files
+# Created by `dart pub`
+# Dart
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.melos_tool/
+.pub-cache/
+build/
+.idea/
+.vscode/
+*.iml
+
+# iOS
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/.symlinks/
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/DerivedData/
+ios/.dart_tool/
+
+# Android
+android/.gradle/
+android/app/build/
+android/.idea/
+
+# macOS
+macos/Flutter/Flutter.framework
+macos/Flutter/Flutter.podspec
+macos/.symlinks/
+macos/Pods/
+macos/Runner.xcworkspace/
+macos/build/
+
+# Windows
+windows/build/
+
+# Web
+web/.dart_tool/
+web/build/
+
+# Linux
+linux/build/
+
+# Firebase/secret keys
+*.jks
+*.p12
+*.key
+*.keystore
+google-services.json
+GoogleService-Info.plist
+
+# Others
+*.log
+*.tmp
+*.swp
