@@ -8,6 +8,7 @@
 
  */
 
+/*
 void main() {
   Operation op = add;
   int result = op(10, 20, 30);
@@ -26,6 +27,24 @@ int add(int x, int y, int z) => x + y + z;
 
 int subtract(int x, int y, int z) => x - y - z;
 
+
 int calculate(int x, int y, int z, Operation op) {
   return op(x, y, z);
 }
+ */
+
+// 많이 사용하는 방법
+void main() {
+  int result = calulate(10, 20, 30, add);
+  print(result);
+
+  print(calulate(50, 10, 30, subtract));
+  print(calulate(50, 10, 30, multi));
+}
+
+typedef Operation = int Function(int x, int y, int z);
+
+int add(int x, int y, int z) => x + y + z;
+int subtract(int x, int y, int z) => x - y - z;
+int multi(int x, int y, int z) => x * y * z;
+int calulate(int x, int y, int z, Operation op) => op(x,y,z);
