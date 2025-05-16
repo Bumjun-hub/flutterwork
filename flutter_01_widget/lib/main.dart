@@ -1,20 +1,7 @@
 import 'package:flutter/material.dart';
 /*
-    widget
-    Meterial widget과 Cupertino widget
-    : 위젯을 사용하려면 반드시 2개중 하나를 사용해야 그 안에 있는 디자인 기반으로 위젯이 만들어짐
-    (미리 만들어 놓은 위젯들 가져다 사용함) 
-    1. Material widget : 안드로이드용 위젯
-    2. Cupertino widget : 아이폰용 위젯
-
-    * widget의 종류
-    1. Text() : 글씨 위젯 -> Text('글씨');
-    2. Image() : 이미지 위젯 -> Image.asset('이미지url')
-    3. Icon() : 아이콘 위젯 -> Icon(Icons.??)
-    4. Container : 박스 위젯
-
+    * 박스의 margin, padding, 정렬위젯(Align())
  */
-
 
 void main() {
   runApp(const MyApp());
@@ -24,20 +11,36 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext conetext) {
     return MaterialApp(
-      // home: Text('글씨'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('강남역'),
+          backgroundColor: Colors.grey,
+          actions: [
+            Icon(Icons.search),
+            Icon(Icons.menu),
+            Icon(Icons.notifications),
+          ],
+        ),
+/*
+        body:Column(
+          children: [
+            Flexible(child: Container(color:Colors.amber), flex:1,),
+            Flexible(child: Container(color:Colors.black26), flex: 1,),
+            Flexible(child: Container(color:Colors.purpleAccent), flex:1)
 
-      // home: Image.asset('assets/images/violet.png') // 웹에서 볼땐 images/파일이름만 앱에서 볼땐 루트 전체 경로
+          ],
+        )
 
-   /*   home: Container (
-        color: Colors.redAccent,
-        width:50,
-        height:50,
-      )
-*/
-
+ */
+      body: Column(
+        children: [
+          Container( height: 100, color:Colors.amber),
+          Expanded(child:Container(color:Colors.black26))
+        ],
+      ),
+      ),
     );
-
   }
 }
