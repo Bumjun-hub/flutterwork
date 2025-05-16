@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
       body: ListView.builder(
         itemBuilder: (context, i) {
           return ListTile(
-            leading: Image.asset('assets/user${i+1}.png'),
+            leading: Image.asset('assets/images/human.png'),
             title: Text(name[i]),
           );
         },

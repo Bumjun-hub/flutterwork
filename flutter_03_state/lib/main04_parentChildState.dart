@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(home: MyApp()));
-}a
+}
 
 class MyApp extends StatefulWidget {
   MyApp({super.key});
