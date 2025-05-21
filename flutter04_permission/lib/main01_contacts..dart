@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
@@ -14,25 +15,34 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Contact> name = [];
+  //var name = ['홍길동', '더조은', '빛나리'];
+  //var name = [];  //그냥은 type이 안맞음  toString() ㄴㄴ....
+  List<Contact> name = []; // 맞는 타입으로 바꿔줌
 
   getPermission() async {
     var status = await Permission.contacts.status;
 
     if (status.isGranted) {
       print('허락함');
-      List<Contact> contacts = await FlutterContacts.getContacts(withProperties: true);
+      List<Contact> contacts = await FlutterContacts.getContacts();
       setState(() {
-        name = contacts;
+        name = contacts;  //이름이 바뀌면 재랜더링을 해야 하기 때문
       });
+
     } else if (status.isDenied) {
       print('거절됨');
       Permission.contacts.request();
     }
   }
+  // 앱이 실행되면 바로 실행함
+  @override
+  void initState() {
+    super.initState();
+    getPermission();
+  }
 
-  addName(inputName) async{
-    var contacts = await FlutterContacts.getContacts(withProperties: true);
+  addName(inputName) {
+    var contacts = FlutterContacts.getContacts(withProperties: true);
     setState(() {
       name.add(contacts as Contact);
     });
@@ -47,7 +57,7 @@ class _MyAppState extends State<MyApp> {
           showDialog(
             context: context,
             builder: (context) {
-              return CustomDialog(addName : addName);
+              return CustomDialog(addName: addName);
             },
           );
         },
@@ -61,8 +71,9 @@ class _MyAppState extends State<MyApp> {
       body: ListView.builder(
         itemBuilder: (context, i) {
           return ListTile(
+            leading: Image.asset('assets/images/human.png'),
             title: Text(name[i].displayName ?? '이름없음'),
-            subtitle: Text(name[i].phones.isNotEmpty ? name[i].phones[0].number : '전화번호 없음'),
+            subtitle: Text(name[i].phones[0].number),
           );
         },
         itemCount: name.length,
@@ -74,6 +85,7 @@ class _MyAppState extends State<MyApp> {
 
 class CustomDialog extends StatelessWidget {
   CustomDialog({super.key, this.addName});
+
   final addName;
   var inputData = '';
 
@@ -94,6 +106,7 @@ class CustomDialog extends StatelessWidget {
               onPressed: () async {
                 var newContact = Contact();
                 newContact.name.first = inputData;
+                //newContact.name.last = 'Smith' ;
                 await newContact.insert();
                 await addName(newContact);
                 Navigator.pop(context);

@@ -21,6 +21,9 @@
       <excludeFolder url="file://$MODULE_DIR$/flutter04_permission/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/flutter04_permission/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/flutter04_permission/build" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter05_instagram/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter05_instagram/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/flutter05_instagram/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
